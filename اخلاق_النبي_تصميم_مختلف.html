@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أخلاق النبي ﷺ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=Markazi+Text:wght@500;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay: #A6512E;
+    --clay-deep: #7A3A20;
+    --olive: #4B5D45;
+    --olive-deep: #33422F;
+    --cream: #FBF3E7;
+    --panel: #FFFDF9;
+    --ink: #2B2620;
+    --ink-soft: #79705F;
+    --line: #E9DCC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:'Tajawal',sans-serif; overflow-x:hidden; }
+  h1,h2,h3{ font-family:'Reem Kufi', sans-serif; margin:0; }
+
+  .credit-badge{
+    position:fixed; top:14px; right:18px; z-index:80;
+    background:var(--panel); color:var(--clay-deep); border:1.5px solid var(--clay);
+    padding:7px 16px; border-radius:8px; font-weight:700; font-size:14px;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.2);
+  }
+  @media (max-width:700px){ .credit-badge{ top:8px; right:8px; font-size:11.5px; padding:5px 10px; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:88vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding: 60px 20px 70px;
+    background: var(--olive-deep);
+    color:#F3EEDD; overflow:hidden;
+  }
+  .kufic-pattern{
+    position:absolute; inset:0; opacity:.16;
+    background-image: repeating-linear-gradient(45deg, transparent 0 18px, rgba(251,243,231,0.5) 18px 19px),
+                       repeating-linear-gradient(-45deg, transparent 0 18px, rgba(251,243,231,0.5) 18px 19px);
+  }
+  .hero-inner{ position:relative; z-index:2; }
+  .hero .eyebrow{ letter-spacing:5px; font-size:12.5px; color:#D9CBA8; text-transform:uppercase; }
+  .hero h1{ font-size:clamp(42px,8vw,80px); margin-top:14px; color:#fff; }
+  .hero h1 em{ font-style:normal; color:var(--clay); }
+  .hero p{ max-width:600px; margin:22px auto 0; font-size:16px; line-height:2; color:#D9CBA8; }
+  .hero-frame{
+    width:120px; height:3px; background:var(--clay); margin:30px auto 0; position:relative;
+  }
+  .hero-frame::before, .hero-frame::after{
+    content:""; position:absolute; top:-4px; width:11px; height:11px; border:2px solid var(--clay); transform:rotate(45deg);
+  }
+  .hero-frame::before{ right:-6px; } .hero-frame::after{ left:-6px; }
+
+  /* ---------- Daily card generator ---------- */
+  .daily{ max-width: 720px; margin: -60px auto 0; padding: 0 20px; position:relative; z-index:5; }
+  .daily-card{
+    background:var(--panel); border:2px solid var(--clay); border-radius:4px;
+    padding: 40px 32px; text-align:center; box-shadow:0 24px 60px -30px rgba(43,38,32,.4);
+  }
+  .daily-card .tag{ font-size:11px; letter-spacing:3px; color:var(--olive); text-transform:uppercase; }
+  .daily-card h3{ font-size:26px; color:var(--clay-deep); margin:12px 0 14px; }
+  .daily-card p{ font-size:14.5px; line-height:2; color:var(--ink); }
+  .daily-btn{
+    margin-top:20px; background:var(--olive); color:#fff; border:none; padding:11px 26px;
+    border-radius:4px; font-family:'Tajawal',sans-serif; font-weight:700; font-size:13.5px; cursor:pointer;
+  }
+  .daily-btn:hover{ background:var(--olive-deep); }
+
+  /* ---------- Timeline ---------- */
+  section{ padding: 90px 20px; max-width: 980px; margin:0 auto; }
+  .section-head{ text-align:center; margin-bottom:54px; }
+  .section-head .eyebrow{ font-size:11.5px; letter-spacing:3px; color:var(--clay); text-transform:uppercase; }
+  .section-head h2{ font-size:clamp(28px,4vw,38px); color:var(--olive-deep); margin-top:10px; }
+
+  .timeline{ position:relative; }
+  .timeline::before{
+    content:""; position:absolute; top:0; bottom:0; right:50%; width:2px;
+    background: var(--line); transform: translateX(1px);
+  }
+  .t-item{
+    position:relative; width:48%; margin-bottom:46px; padding:22px 24px;
+    background:var(--panel); border:1px solid var(--line); border-radius:4px;
+  }
+  .t-item::before{
+    content:""; position:absolute; top:24px; width:14px; height:14px; background:var(--clay);
+    border-radius:50%; border:3px solid var(--cream);
+  }
+  .t-item.right{ margin-right:0; margin-left:auto; }
+  .t-item.right::before{ right:calc(100% + 8px); }
+  .t-item.left{ margin-right:auto; }
+  .t-item.left::before{ left:calc(100% + 8px); }
+  .t-item .num{ font-family:'Markazi Text',serif; font-size:32px; color:var(--clay); font-weight:700; }
+  .t-item h3{ font-size:20px; color:var(--olive-deep); margin:6px 0 10px; }
+  .t-item p{ font-size:13.5px; color:var(--ink-soft); line-height:1.9; }
+  @media (max-width:760px){
+    .timeline::before{ right:18px; }
+    .t-item, .t-item.right, .t-item.left{ width:calc(100% - 46px); margin-right:46px; margin-left:0; }
+    .t-item::before, .t-item.right::before, .t-item.left::before{ right:auto; left:-38px; }
+  }
+
+  /* ---------- Scenario game ---------- */
+  .scenario-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px;
+    padding: 36px 30px; box-shadow:0 20px 50px -34px rgba(43,38,32,.3);
+  }
+  .scenario-progress{ font-size:12px; color:var(--ink-soft); margin-bottom:10px; letter-spacing:1px; }
+  .scenario-text{ font-size:18px; color:var(--olive-deep); line-height:1.9; margin-bottom:22px; }
+  .scenario-options{ display:grid; gap:12px; }
+  .scenario-options button{
+    text-align:right; padding:14px 18px; border-radius:4px; border:1.5px solid var(--line);
+    background:var(--cream); font-family:'Tajawal',sans-serif; font-size:14.5px; color:var(--ink);
+    cursor:pointer; transition: all .15s ease;
+  }
+  .scenario-options button:hover{ border-color:var(--clay); }
+  .scenario-options button.chosen-good{ background:#E4EEDF; border-color:var(--olive); color:var(--olive-deep); font-weight:700; }
+  .scenario-options button.chosen-other{ background:#F3E6DC; border-color:var(--clay); color:var(--clay-deep); font-weight:700; }
+  .scenario-options button:disabled{ cursor:default; }
+  .scenario-feedback{
+    margin-top:18px; background:var(--cream); border-inline-start:4px solid var(--clay);
+    padding:14px 18px; font-size:13.5px; line-height:1.9; color:var(--ink); display:none;
+  }
+  .scenario-feedback.show{ display:block; }
+  .scenario-footer{ display:flex; justify-content:flex-end; margin-top:20px; }
+  .scenario-next{
+    background:var(--olive); color:#fff; border:none; padding:10px 24px; border-radius:4px;
+    font-weight:700; font-size:13.5px; cursor:pointer; font-family:'Tajawal',sans-serif;
+  }
+  .scenario-next:disabled{ opacity:.35; cursor:not-allowed; }
+  .scenario-done{ text-align:center; padding:10px 0; }
+  .scenario-done h3{ font-size:24px; color:var(--olive-deep); margin-bottom:10px; }
+  .scenario-restart{
+    background:var(--clay); color:#fff; border:none; padding:10px 24px; border-radius:4px;
+    font-weight:700; cursor:pointer; font-family:'Tajawal',sans-serif; margin-top:10px;
+  }
+
+  /* ---------- Value sorter game ---------- */
+  .sorter{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+  @media (max-width:700px){ .sorter{ grid-template-columns:1fr; } }
+  .pool, .dropzone{
+    background:var(--panel); border:1.5px dashed var(--line); border-radius:6px; padding:18px;
+    min-height:220px;
+  }
+  .pool h4, .dropzone h4{ font-size:14px; color:var(--olive-deep); margin-bottom:12px; }
+  .word-chip{
+    display:inline-block; background:var(--cream); border:1px solid var(--line); color:var(--ink);
+    padding:8px 14px; border-radius:999px; font-size:13px; margin:4px; cursor:grab; user-select:none;
+  }
+  .dropzone.over{ border-color:var(--clay); background:#FBEFE6; }
+  .dropzone .placed{ background:#E4EEDF; border-color:var(--olive); color:var(--olive-deep); }
+  .sorter-status{ text-align:center; margin-top:16px; font-size:13.5px; color:var(--ink-soft); }
+  .sorter-status button{
+    margin-inline-start:10px; background:var(--olive); color:#fff; border:none; padding:6px 16px;
+    border-radius:999px; font-size:12px; cursor:pointer;
+  }
+
+  footer{ text-align:center; padding:40px 20px 60px; color:var(--ink-soft); font-size:12px; }
+  .fade-in{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .fade-in.shown{ opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<div class="credit-badge">إعداد: مازن زياد</div>
+
+<section class="hero">
+  <div class="kufic-pattern"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">سيرة وقيم</span>
+    <h1>أخلاق <em>النبي ﷺ</em></h1>
+    <p>وَإِنَّكَ لَعَلى خُلُقٍ عَظِيمٍ — تعرّف على شخصية استثنائية جمعت بين القوة واللين، من خلال محطات حقيقية من سيرته.</p>
+    <div class="hero-frame"></div>
+  </div>
+</section>
+
+<div class="daily">
+  <div class="daily-card" id="dailyCard">
+    <span class="tag">بطاقة اليوم</span>
+    <h3 id="dailyTitle">—</h3>
+    <p id="dailyText">اضغط الزر لتظهر بطاقة عشوائية من صفاته ﷺ.</p>
+    <button class="daily-btn" id="dailyBtn">بطاقة جديدة</button>
+  </div>
+</div>
+
+<section id="timeline">
+  <div class="section-head fade-in">
+    <span class="eyebrow">محطات من السيرة</span>
+    <h2>ست لحظات مضيئة</h2>
+  </div>
+  <div class="timeline" id="timelineWrap"></div>
+</section>
+
+<section id="ghazawat">
+  <div class="section-head fade-in">
+    <span class="eyebrow">أحداث السيرة</span>
+    <h2>غزوات النبي ﷺ</h2>
+  </div>
+  <div class="timeline" id="ghazawatTimeline"></div>
+</section>
+
+<section id="scenario">
+  <div class="section-head fade-in">
+    <span class="eyebrow">لعبة تفاعلية</span>
+    <h2>ماذا كنت ستفعل؟</h2>
+  </div>
+  <div class="scenario-card fade-in" id="scenarioCard"></div>
+</section>
+
+<section id="sorter-section">
+  <div class="section-head fade-in">
+    <span class="eyebrow">لعبة الترتيب</span>
+    <h2>صنّف كل موقف تحت الصفة المناسبة</h2>
+  </div>
+  <div class="scenario-card fade-in">
+    <div class="sorter" id="sorterWrap"></div>
+    <div class="sorter-status" id="sorterStatus"></div>
+  </div>
+</section>
+
+<section id="ghazawat-quiz">
+  <div class="section-head fade-in">
+    <span class="eyebrow">اختبر معلوماتك</span>
+    <h2>مسابقة غزوات النبي ﷺ</h2>
+  </div>
+  <div class="scenario-card fade-in" id="gQuizCard"></div>
+</section>
+
+<footer>محتوى تعليمي موجز عن سيرة النبي محمد ﷺ — للتوسع يُنصح بالرجوع إلى كتب السيرة النبوية المعتمدة.</footer>
+
+<script>
+/* ---------------- Daily card ---------------- */
+const cards = [
+  {title:"الصدق", text:"عُرف بين قومه بـ'الصادق الأمين' قبل أن يوحى إليه، فلم يكذب طيلة حياته."},
+  {title:"الرحمة", text:"رفض دعوة إهلاك أهل الطائف رغم أذاهم الشديد له، ودعا أن يخرج من أصلابهم من يعبد الله."},
+  {title:"العفو", text:"يوم فتح مكة، عفا عمّن حاربوه سنوات وقال: اذهبوا فأنتم الطلقاء."},
+  {title:"التواضع", text:"كان يخصف نعله بيده، ويرقّع ثوبه، ويرفض أن يُبجَّل كما تُبجَّل الملوك."},
+  {title:"العدل", text:"قال: لو أن فاطمة بنت محمد سرقت لقطعت يدها، تأكيدًا أن لا أحد فوق العدل."},
+  {title:"الصبر", text:"واجه المقاطعة وفقد الأحبة والحروب المتتالية، وبقي ثابتًا دون قسوة أو يأس."},
+  {title:"الرفق بالأهل", text:"قال: خيركم خيركم لأهله، وأنا خيركم لأهلي، وكان يعين في بيته."}
+];
+const dailyTitle = document.getElementById('dailyTitle');
+const dailyText = document.getElementById('dailyText');
+function showRandomCard(){
+  const c = cards[Math.floor(Math.random()*cards.length)];
+  dailyTitle.textContent = c.title;
+  dailyText.textContent = c.text;
+}
+document.getElementById('dailyBtn').addEventListener('click', showRandomCard);
+showRandomCard();
+
+/* ---------------- Timeline ---------------- */
+const moments = [
+  {n:"01", title:"الصادق الأمين", text:"لقّبه قومه بهذا قبل النبوة، شهادة من مجتمعه على صدقه وأمانته في المعاملات."},
+  {n:"02", title:"عام الحزن", text:"فقد زوجته خديجة وعمّه أبا طالب في عام واحد، وواجه الحزن بصبر دون أن يتوقف عن الدعوة."},
+  {n:"03", title:"الطائف", text:"طُرد ورُجم، ومع ذلك دعا لأهلها بالهداية بدل الدعاء عليهم بالهلاك."},
+  {n:"04", title:"الهجرة", text:"ترك عليًّا رضي الله عنه ليردّ الأمانات لأصحابها من المشركين قبل مغادرته مكة."},
+  {n:"05", title:"فتح مكة", text:"دخل مكة منتصرًا فعفا عن كل من آذاه، في أعظم مشهد للعفو عند المقدرة."},
+  {n:"06", title:"الوفاة", text:"أوصى أمته بالصلاة وحسن معاملة من تحت أيديهم، ختامًا لحياة قدوة في الخلق."}
+];
+const tWrap = document.getElementById('timelineWrap');
+moments.forEach((m,i) => {
+  const el = document.createElement('div');
+  el.className = 't-item fade-in ' + (i % 2 === 0 ? 'right' : 'left');
+  el.innerHTML = `<div class="num">${m.n}</div><h3>${m.title}</h3><p>${m.text}</p>`;
+  tWrap.appendChild(el);
+});
+
+/* ---------------- Ghazawat timeline ---------------- */
+const ghazawat = [
+  {n:"٢هـ", title:"غزوة بدر الكبرى", text:"أول معركة فاصلة، انتصر فيها المسلمون رغم قلة عددهم، ووصفها القرآن بيوم الفرقان."},
+  {n:"٣هـ", title:"غزوة أحد", text:"ابتلاء عظيم بعد مخالفة بعض الرماة لأمر النبي ﷺ، واستشهد فيها حمزة رضي الله عنه."},
+  {n:"٥هـ", title:"غزوة الخندق", text:"حفر خندق حول المدينة بناءً على اقتراح سلمان الفارسي، ونجح في صد تحالف الأحزاب."},
+  {n:"٦هـ", title:"صلح الحديبية", text:"معاهدة سلام وصفها القرآن بالفتح المبين، ومهدت لانتشار الدعوة سلميًا."},
+  {n:"٧هـ", title:"غزوة خيبر", text:"فتح حصون يهود خيبر بعد نقضهم العهود وتحريضهم القبائل."},
+  {n:"٨هـ", title:"فتح مكة", text:"دخول النبي ﷺ مكة منتصرًا دون قتال يُذكر، وعفوه الكامل عن أهلها."},
+  {n:"٨هـ", title:"غزوة حنين", text:"معركة ضد هوازن وثقيف، بدأت بتراجع مفاجئ ثم انتهت بثبات وانتصار."},
+  {n:"٩هـ", title:"غزوة تبوك", text:"آخر غزواته ﷺ، تجهيز جيش العسرة لمواجهة احتمال هجوم الروم دون وقوع قتال."}
+];
+const gTWrap = document.getElementById('ghazawatTimeline');
+ghazawat.forEach((g,i) => {
+  const el = document.createElement('div');
+  el.className = 't-item fade-in ' + (i % 2 === 0 ? 'right' : 'left');
+  el.innerHTML = `<div class="num">${g.n}</div><h3>${g.title}</h3><p>${g.text}</p>`;
+  gTWrap.appendChild(el);
+});
+
+/* ---------------- Scroll reveal ---------------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('shown'); });
+}, {threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+/* ---------------- Scenario game ---------------- */
+const scenarios = [
+  {
+    text:"جارك يزعجك كثيرًا بسلوكه، ماذا كنت تفعل بحسب هدي النبي ﷺ؟",
+    options:[
+      {label:"أرد الإساءة بمثلها فورًا", good:false, feedback:"النبي ﷺ كان يقابل الأذى بالصبر والاحتمال، ويدعو للهداية بدل الانتقام السريع."},
+      {label:"أصبر وأحاول الإحسان إليه رغم ذلك", good:true, feedback:"هذا أقرب لهديه ﷺ الذي كان يقابل الإساءة بالإحسان، كما فعل مع أهل الطائف حين دعا لهم بالهداية."}
+    ]
+  },
+  {
+    text:"انتصرت على خصم كان يؤذيك طويلًا، وأصبحت قادرًا على الانتقام منه. ماذا تفعل؟",
+    options:[
+      {label:"أنتقم منه لأنني أستحق ذلك", good:false, feedback:"النبي ﷺ عفا عن أهل مكة يوم الفتح رغم قدرته الكاملة على الانتقام، وقال: اذهبوا فأنتم الطلقاء."},
+      {label:"أعفو عنه لأنني أملك القدرة الآن", good:true, feedback:"هذا بالضبط ما فعله النبي ﷺ يوم فتح مكة: عفا عند تمام المقدرة، وهو أعلى درجات العفو."}
+    ]
+  },
+  {
+    text:"شخص من أقاربك المقربين ارتكب مخالفة تستوجب عقوبة. ماذا تفعل؟",
+    options:[
+      {label:"أتجاوز عن الأمر لأنه قريبي", good:false, feedback:"النبي ﷺ قال: لو أن فاطمة بنت محمد سرقت لقطعت يدها، تأكيدًا أن العدل لا يُستثنى منه أحد مهما كانت قرابته."},
+      {label:"أطبّق العدل عليه كما على غيره", good:true, feedback:"هذا هو هدي النبي ﷺ في العدل: لا فرق بين قريب وبعيد أمام الحق."}
+    ]
+  },
+  {
+    text:"أصبحت في مكانة مرموقة بين الناس، كيف تتعامل مع من حولك؟",
+    options:[
+      {label:"أطلب منهم إجلالي والقيام لي", good:false, feedback:"النبي ﷺ رغم مكانته العظيمة كان يرفض أن يقوم له أحد، وكان يخدم نفسه بيده."},
+      {label:"أبقى متواضعًا وأخدم نفسي كما كنت", good:true, feedback:"هذا هديه ﷺ في التواضع، فقد كان يخصف نعله ويرقّع ثوبه بنفسه رغم عظم مكانته."}
+    ]
+  }
+];
+let sIndex = 0;
+const scenarioCard = document.getElementById('scenarioCard');
+
+function renderScenario(){
+  if(sIndex >= scenarios.length){
+    scenarioCard.innerHTML = `
+      <div class="scenario-done">
+        <h3>أحسنت! أنهيت جميع المواقف</h3>
+        <p>تأمّل كيف أن أخلاق النبي ﷺ تقدّم نموذجًا عمليًا لكل موقف يومي.</p>
+        <button class="scenario-restart" id="restartScenario">إعادة اللعبة</button>
+      </div>`;
+    document.getElementById('restartScenario').addEventListener('click', () => { sIndex=0; renderScenario(); });
+    return;
+  }
+  const item = scenarios[sIndex];
+  scenarioCard.innerHTML = `
+    <div class="scenario-progress">الموقف ${sIndex+1} من ${scenarios.length}</div>
+    <div class="scenario-text">${item.text}</div>
+    <div class="scenario-options" id="scOptions">
+      ${item.options.map((o,i)=>`<button data-i="${i}">${o.label}</button>`).join('')}
+    </div>
+    <div class="scenario-feedback" id="scFeedback"></div>
+    <div class="scenario-footer">
+      <button class="scenario-next" id="scNext" disabled>التالي</button>
+    </div>`;
+  const btns = scenarioCard.querySelectorAll('#scOptions button');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b=>b.disabled=true);
+      const opt = item.options[+btn.dataset.i];
+      btn.classList.add(opt.good ? 'chosen-good' : 'chosen-other');
+      const fb = document.getElementById('scFeedback');
+      fb.textContent = opt.feedback;
+      fb.classList.add('show');
+      document.getElementById('scNext').disabled = false;
+    });
+  });
+  document.getElementById('scNext').addEventListener('click', () => { sIndex++; renderScenario(); });
+}
+renderScenario();
+
+/* ---------------- Sorter game (drag & drop) ---------------- */
+const sorterItems = [
+  {id:1, text:"قال: اذهبوا فأنتم الطلقاء", cat:"العفو"},
+  {id:2, text:"رفض إهلاك أهل الطائف", cat:"الرحمة"},
+  {id:3, text:"لو سرقت فاطمة لقطعت يدها", cat:"العدل"},
+  {id:4, text:"كان يخصف نعله بيده", cat:"التواضع"}
+];
+const categories = ["العفو","الرحمة","العدل","التواضع"];
+let placedCount = 0;
+
+function buildSorter(){
+  placedCount = 0;
+  const wrap = document.getElementById('sorterWrap');
+  const shuffledItems = [...sorterItems].sort(()=>Math.random()-0.5);
+  wrap.innerHTML = `
+    <div class="pool" id="pool">
+      <h4>المواقف (اسحبها إلى الصفة المناسبة)</h4>
+      ${shuffledItems.map(it => `<span class="word-chip" draggable="true" data-id="${it.id}" data-cat="${it.cat}">${it.text}</span>`).join('')}
+    </div>
+    <div class="dropzone-group">
+      <h4>الصفات</h4>
+      ${categories.map(c => `<div class="dropzone" data-cat="${c}" style="margin-bottom:10px;"><strong>${c}</strong><div class="drop-target" style="margin-top:8px;"></div></div>`).join('')}
+    </div>`;
+
+  const chips = wrap.querySelectorAll('.word-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('dragstart', (e) => { e.dataTransfer.setData('text/plain', chip.dataset.id); });
+  });
+  const zones = wrap.querySelectorAll('.dropzone');
+  zones.forEach(zone => {
+    zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+    zone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      zone.classList.remove('over');
+      const id = e.dataTransfer.getData('text/plain');
+      const chip = wrap.querySelector(`.word-chip[data-id="${id}"]`);
+      if(!chip) return;
+      const target = zone.querySelector('.drop-target');
+      if(chip.dataset.cat === zone.dataset.cat){
+        chip.classList.add('placed');
+        chip.setAttribute('draggable','false');
+        target.appendChild(chip);
+        placedCount++;
+        updateSorterStatus();
+      }else{
+        zone.style.borderColor = 'var(--clay)';
+        setTimeout(()=> zone.style.borderColor = '', 400);
+      }
+    });
+  });
+  updateSorterStatus();
+}
+
+function updateSorterStatus(){
+  const status = document.getElementById('sorterStatus');
+  if(placedCount === sorterItems.length){
+    status.innerHTML = `أحسنت! صنّفت جميع المواقف بنجاح. <button id="restartSorter">إعادة</button>`;
+  }else{
+    status.innerHTML = `تم تصنيف ${placedCount} من ${sorterItems.length} <button id="restartSorter">إعادة</button>`;
+  }
+  document.getElementById('restartSorter').addEventListener('click', buildSorter);
+}
+buildSorter();
+
+/* ---------------- Ghazawat quiz ---------------- */
+const gQuizData = [
+  {q:"في أي سنة هجرية وقعت غزوة بدر الكبرى؟", options:["السنة الأولى","السنة الثانية","السنة الخامسة","السنة الثامنة"], correct:1},
+  {q:"من اقترح حفر الخندق في غزوة الأحزاب؟", options:["أبو بكر الصديق","عمر بن الخطاب","سلمان الفارسي","خالد بن الوليد"], correct:2},
+  {q:"ماذا حدث في غزوة أحد بعد مخالفة بعض الرماة لأمر النبي ﷺ؟", options:["استمر النصر كما هو","تحولت المعركة ضد المسلمين مؤقتًا","انسحب المشركون فورًا","لم يتغير شيء"], correct:1},
+  {q:"أي حدث وصفه القرآن بـ'الفتح المبين' رغم أن بنوده بدت مجحفة؟", options:["غزوة خيبر","فتح مكة","صلح الحديبية","غزوة حنين"], correct:2},
+  {q:"ما اسم آخر غزوة خرج فيها النبي ﷺ دون وقوع قتال فعلي؟", options:["غزوة بدر","غزوة تبوك","غزوة أحد","غزوة خيبر"], correct:1}
+];
+let gqIndex = 0, gqScore = 0;
+const gQuizCard = document.getElementById('gQuizCard');
+
+function renderGQuiz(){
+  if(gqIndex >= gQuizData.length){
+    gQuizCard.innerHTML = `
+      <div class="scenario-done">
+        <h3>نتيجتك: ${gqScore} من ${gQuizData.length}</h3>
+        <p>${gqScore === gQuizData.length ? 'ممتاز! معرفة دقيقة بغزوات النبي ﷺ.' : gqScore >= gQuizData.length/2 ? 'جيد جدًا، واصل قراءة السيرة النبوية.' : 'حاول مجددًا لتثبيت المعلومات.'}</p>
+        <button class="scenario-restart" id="restartGQuiz">إعادة المحاولة</button>
+      </div>`;
+    document.getElementById('restartGQuiz').addEventListener('click', () => { gqIndex=0; gqScore=0; renderGQuiz(); });
+    return;
+  }
+  const item = gQuizData[gqIndex];
+  gQuizCard.innerHTML = `
+    <div class="scenario-progress">السؤال ${gqIndex+1} من ${gQuizData.length} — النقاط: ${gqScore}</div>
+    <div class="scenario-text">${item.q}</div>
+    <div class="scenario-options" id="gQuizOptions">
+      ${item.options.map((o,i)=>`<button data-i="${i}">${o}</button>`).join('')}
+    </div>
+    <div class="scenario-footer">
+      <button class="scenario-next" id="gNextQBtn" disabled>السؤال التالي</button>
+    </div>`;
+  const optBtns = gQuizCard.querySelectorAll('.scenario-options button');
+  optBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      optBtns.forEach(b=>b.disabled=true);
+      const chosen = +btn.dataset.i;
+      if(chosen === item.correct){ btn.classList.add('chosen-good'); gqScore++; }
+      else{
+        btn.classList.add('chosen-other');
+        optBtns[item.correct].classList.add('chosen-good');
+      }
+      document.getElementById('gNextQBtn').disabled = false;
+    });
+  });
+  document.getElementById('gNextQBtn').addEventListener('click', () => { gqIndex++; renderGQuiz(); });
+}
+renderGQuiz();
+</script>
+</body>
+</html>
